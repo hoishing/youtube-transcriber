@@ -3,11 +3,21 @@ from pytubefix import YouTube
 from pytubefix.exceptions import RegexMatchError
 from utils import add_punctuation, transcribe
 
-st.title("Youtube Transcription")
+PAGE_CONFIG = dict(
+    page_title="Youtube Transcriber",
+    page_icon=":material/smart_display:",
+    menu_items={
+        "About": "https://github.com/hoishing/youtube-transcriber/issues",
+        "Get help": "https://github.com/hoishing/youtube-transcriber/issues",
+    },
+)
 
+st.set_page_config(**PAGE_CONFIG)
+st.markdown("### 🎬 &nbsp; Youtube Transcriber")
+st.caption("Extract captions from Youtube if available, transcribe with AI otherwise")
+st.text("")
 
 url = st.text_input("Enter the Youtube URL")
-
 if not url:
     st.stop()
 
